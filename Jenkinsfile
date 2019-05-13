@@ -34,7 +34,7 @@ environment {
                 }
 	stage('terraform apply') {
             steps {
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform apply -var 'vm_name=testvm2' -lock=false -input=true'''
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform apply -auto-approve -var 'vm_name=testvm2' -lock=false'''
                   }
                 }
         stage('end') {
