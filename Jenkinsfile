@@ -19,7 +19,7 @@ environment {
         }
         stage('git clone') {
             steps {
-                sh 'cd /opt/ && sudo git clone https://github.com/Chandras999/Terraform.git'
+                sh 'cd /opt/ && git clone https://github.com/Chandras999/Terraform.git'
             }
         }
         stage('terraform init') {
