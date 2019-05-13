@@ -24,12 +24,12 @@ environment {
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /var/lib/jenkins/workspace/Terraform/terraform init ./jenkins'
+                sh 'sudo /var/lib/jenkins/workspace/Terraform/terraform init'
             }
         }
         stage('plan') {
             steps {
-                sh '''sudo /var/lib/jenkins/workspace/Terraform/terraform plan -var 'vm_name=testvm2'-lock=false ./jenkins'''
+                sh '''sudo /var/lib/jenkins/workspace/Terraform/terraform plan -var 'vm_name=testvm2'-lock=false'''
                   }
                 }
         stage('end') {
