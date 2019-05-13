@@ -5,11 +5,11 @@ pipeline {
         }
     }
 environment {
-                export ARM_ACCESS_KEY='/zrc1Zo4tldgDnT2nrJlro52d+9DMJurRrx/Np7nMzpzN4Qpcrn8ASWHgBdhzF0NBoyC35oeVYA59M9BKwXDNA=='
-		export ARM_CLIENT_ID='89973d3c-c8d3-4dc8-aa96-d8231d6afdf1'
-		export ARM_CLIENT_SECRET='2de25810-801c-4568-9c36-44af6f002ff8'
-		export ARM_SUBSCRIPTION_ID='fd7d53ef-e290-4ab1-937e-fec061c00132'
-		export ARM_TENANT_ID='7a32773c-a86e-490d-ae40-5780e4791a65'
+                sh 'export ARM_ACCESS_KEY='/zrc1Zo4tldgDnT2nrJlro52d+9DMJurRrx/Np7nMzpzN4Qpcrn8ASWHgBdhzF0NBoyC35oeVYA59M9BKwXDNA==''
+		sh 'export ARM_CLIENT_ID='89973d3c-c8d3-4dc8-aa96-d8231d6afdf1''
+		sh 'export ARM_CLIENT_SECRET='2de25810-801c-4568-9c36-44af6f002ff8''
+		sh 'export ARM_SUBSCRIPTION_ID='fd7d53ef-e290-4ab1-937e-fec061c00132''
+		sh 'export ARM_TENANT_ID='7a32773c-a86e-490d-ae40-5780e4791a65''
     }
     stages {
         stage('terraform start') {
