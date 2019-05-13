@@ -19,7 +19,7 @@ environment {
         }
         stage('git clone') {
             steps {
-                sh 'sudo -S git clone https://Chandras999:CSS@devops99@github.com/Terraform.git'
+                sh 'sudo git clone https://github.com/Chandras999/Terraform.git'
             }
         }
         stage('terraform init') {
