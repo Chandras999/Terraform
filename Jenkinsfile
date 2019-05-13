@@ -29,7 +29,7 @@ environment {
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /opt/Terraform/azureterraform/terraform init ./jenkins
+                sh 'sudo /opt/Terraform/azureterraform/terraform init ./jenkins'
             }
         }
         stage('plan') {
