@@ -22,19 +22,14 @@ environment {
                 sh 'cd /opt/ && sudo git clone https://github.com/Chandras999/Terraform.git'
             }
         }
-		stage('terraform create') {
-            steps {
-                sh 'sudo /var/lib/jenkins/workspace/Terraform/azureterraform/azure-vm-test.tf ./jenkins'
-            }
-        }
         stage('terraform init') {
             steps {
-                sh 'sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform init ./jenkins'
+                sh 'sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform init -backend=true -input=false'
             }
         }
         stage('plan') {
             steps {
-                sh '''ls -lart ./jenkins && sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform plan -var 'vm_name=testvm2'-lock=false ./jenkins'''
+                sh '''ls -lart ./jenkins && sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform plan -var 'vm_name=testvm2'-lock=false'''
                   }
                 }
         stage('end') {
