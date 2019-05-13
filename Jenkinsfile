@@ -24,12 +24,12 @@ environment {
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform init -backend=true -input=false'
+                sh '/var/lib/jenkins/workspace/Terraform/azureterraform/terraform init -backend=true -input=false'
             }
         }
         stage('plan') {
             steps {
-                sh '''ls -lart ./jenkins && sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform plan -var 'vm_name=testvm2'-lock=false'''
+                sh '''/var/lib/jenkins/workspace/Terraform/azureterraform/terraform plan -var 'vm_name=testvm2'-lock=false'''
                   }
                 }
         stage('end') {
