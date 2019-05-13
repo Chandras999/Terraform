@@ -24,17 +24,17 @@ environment {
         }
 		stage('terraform create') {
             steps {
-                sh 'sudo /opt/Terraform/azureterraform/azure-vm-test.tf ./jenkins'
+                sh 'sudo /var/lib/jenkins/workspace/Terraform/azureterraform/azure-vm-test.tf ./jenkins'
             }
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /opt/Terraform/azureterraform/terraform init ./jenkins'
+                sh 'sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform init ./jenkins'
             }
         }
         stage('plan') {
             steps {
-                sh '''ls -lart ./jenkins && sudo /opt/Terraform/azureterraform/terraform plan -var 'vm_name=testvm2'-lock=false ./jenkins'''
+                sh '''ls -lart ./jenkins && sudo /var/lib/jenkins/workspace/Terraform/azureterraform/terraform plan -var 'vm_name=testvm2'-lock=false ./jenkins'''
                   }
                 }
         stage('end') {
