@@ -32,9 +32,9 @@ environment {
                 sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform plan -var 'vm_name=testvm2' -lock=false'''
                   }
                 }
-	stage('terraform destroy') {
+	stage('terraform apply') {
             steps {
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -var 'vm_name=testvm2' -lock=false'''
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform apply -lock=false'''
                   }
                 }
         stage('end') {
