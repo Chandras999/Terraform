@@ -24,7 +24,7 @@ environment {
         }
         stage('terraform init') {
             steps {
-                sh 'sudo /var/lib/jenkins/workspace/Terraform/terraform init'
+                sh '/var/lib/jenkins/workspace/Terraform/terraform init'
             }
         }
         stage('plan') {
