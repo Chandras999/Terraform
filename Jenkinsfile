@@ -24,7 +24,7 @@ environment {
         }
         stage('terraform init') {
             steps {
-                sh '/var/lib/jenkins/workspace/Terraform/azureterraform/terraform init -backend=true -input=false'
+                sh '/var/lib/jenkins/workspace/Terraform/azureterraform/terraform init'
             }
         }
         stage('plan') {
