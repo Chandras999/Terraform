@@ -39,6 +39,7 @@ environment {
                 }
             }
         }
+}
         stage('end') {
             steps {
                 sh 'echo "Ended"'
