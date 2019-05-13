@@ -37,9 +37,6 @@ environment {
                 sh 'ls -lart ./jenkins && sudo /opt/Terraform/azureterraform/terraform plan -var 'vm_name=testvm2'-lock=false ./jenkins'
                   }
                 }
-            }
-        }
-}
         stage('end') {
             steps {
                 sh 'echo "Ended"'
