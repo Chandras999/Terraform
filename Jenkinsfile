@@ -5,11 +5,11 @@ pipeline {
         }
     }
 environment {
-             ARM_ACCESS_KEY= credentials('ARM_ACCESS_KEY')
-             ARM_CLIENT_ID= credentials('ARM_CLIENT_ID')
-	     ARM_CLIENT_SECRET=credentials('ARM_CLIENT_SECRET')
-	     ARM_SUBSCRIPTION_ID=credentials('ARM_SUBSCRIPTION_ID')
-	     ARM_TENANT_ID=credentials('ARM_TENANT_ID')
+             armaccesskey= credentials('armaccesskey')
+             armaccesskey= credentials('armclientid')
+	     armclientsecret=credentials('armclientsecret')
+	     armsubscrid=credentials('armsubscrid')
+	     armtenantid=credentials('armtenantid')
     }
     stages {
         stage('terraform start') {
