@@ -37,6 +37,11 @@ environment {
                 sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform apply -auto-approve -var 'vm_name=testvm2' -lock=false'''
                   }
                 }
+	 stage('terraform destroy') {
+            steps {
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -var 'vm_name=testvm2' -lock=false'''
+                  }
+                }
         stage('end') {
             steps {
                 sh 'echo "Ended"'
