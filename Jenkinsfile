@@ -5,20 +5,16 @@ pipeline {
         }
     }
 environment {
-        ARM_ACCESS_KEY = 'true'
-	ARM_CLIENT_ID = 'true'
-	ARM_CLIENT_SECRET = 'true'
-	ARM_SUBSCRIPTION_ID = 'true'
-	ARM_TENANT_ID = 'true'
+           env.ARM_ACCESS_KEY
+	   env.ARM_CLIENT_ID
+           env.ARM_CLIENT_SECRET
+	   env.ARM_SUBSCRIPTION_ID
+           env.ARM_TENANT_ID
     }
     stages {
         stage('terraform start') {
             steps {
-              echo env.ARM_ACCESS_KEY
-	      echo env.ARM_CLIENT_ID
-              echo env.ARM_CLIENT_SECRET
-	      echo env.ARM_SUBSCRIPTION_ID
-	      echo env.ARM_TENANT_ID
+              sh ' echo "started"'
             }
         }
         stage('git clone') {
