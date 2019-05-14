@@ -30,7 +30,7 @@ environment {
 
 	 stage('terraform destroy') {
             steps {
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve-var 'vm_name=testvm2' -lock=false'''
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve -var 'vm_name=testvm2' -lock=false'''
                   }
                 }
         stage('end') {
