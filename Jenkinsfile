@@ -31,9 +31,20 @@ parameters {
                 sh 'cd /var/lib/jenkins/workspace/Terraform/ && terraform init'
             }
         }
+		stage('plan') {
+            steps {
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform plan -var '${params.vm_name}' -lock=false'''
+                  }
+                }
+		stage('terraform apply') {
+            steps {
+                
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform apply -auto-approve -var '${params.vm_name}' -lock=false'''
+                  }
+                }
         stage('terraform destroy') {
             steps {
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve -var '${params.vm_name}' -lock=false'''
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve -var '${params.vm_name}' -var  -lock=false'''
                   }
                 }
         stage('end') {
