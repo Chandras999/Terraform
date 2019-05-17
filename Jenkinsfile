@@ -44,7 +44,7 @@ parameters {
                 }
         stage('terraform destroy') {
             steps {
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve -var '${params.vm_name}' -var  -lock=false'''
+                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve -var '${params.vm_name}' -lock=false'''
                   }
                 }
         stage('end') {
