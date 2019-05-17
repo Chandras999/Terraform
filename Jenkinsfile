@@ -16,35 +16,35 @@ parameters {
 	 description: 'Enter the desired VM Name')
 }
     stages {
-        stage('terraform start') {
-            steps {
-              sh ' echo "started"'
-            }
-        }
-        stage('git clone') {
-            steps {
-                sh 'sudo rm -rf Terraform* && sudo -n git clone https://github.com/Chandras999/Terraform.git'
-            }
-        }
+
         stage('terraform init') {
             steps {
-                sh 'cd /var/lib/jenkins/workspace/Terraform/ && terraform init'
+                sh '''
+		cd $WORKSPACE/ && terraform init
+		'''
             }
         }
-		stage('plan') {
+     stage('plan') {
             steps {
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform plan -var '${params.vm_name}' -lock=false'''
+                sh '''
+		echo ${params.vm_name}
+		#cd $WORKSPACE/ && terraform plan -var '${params.vm_name}' -lock=false
+		'''
                   }
                 }
-		stage('terraform apply') {
+     stage('terraform apply') {
             steps {
                 
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform apply -auto-approve -var '${params.vm_name}' -lock=false'''
+                sh '''
+		#cd $WORKSPACE/ && terraform apply -auto-approve -var '${params.vm_name}' -lock=false
+		'''
                   }
                 }
         stage('terraform destroy') {
             steps {
-                sh '''cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve -var '${params.vm_name}' -lock=false'''
+                sh '''
+		# cd /var/lib/jenkins/workspace/Terraform/ && terraform destroy -auto-approve -var '${params.vm_name}' -lock=false
+		'''
                   }
                 }
         stage('end') {
