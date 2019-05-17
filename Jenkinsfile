@@ -11,6 +11,10 @@ environment {
 	     ARM_SUBSCRIPTION_ID = credentials('ARM_SUBSCRIPTION_ID')
 	     ARM_TENANT_ID = credentials('ARM_TENANT_ID')
     }
+parameters {	
+	string(name: 'vm_name',
+	 description: 'Enter the desired VM Name')
+}
     stages {
         stage('terraform start') {
             steps {
