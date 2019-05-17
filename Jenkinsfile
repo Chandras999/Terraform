@@ -27,7 +27,7 @@ parameters {
      stage('plan') {
             steps {
                 sh '''
-		echo ${params.vm_name}
+		echo "${params.vm_name}"
 		#cd $WORKSPACE/ && terraform plan -var '${params.vm_name}' -lock=false
 		'''
                   }
